@@ -1,0 +1,341 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+
+    --radius: 0.5rem;
+
+    --color-rgb: 44, 44, 44;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background-color: #F5F5F5;
+    font-family: var(--font-poppins);
+  }
+
+  h1 {
+    @apply text-4xl;
+    font-family: var(--font-poppins);
+    font-weight: 600;
+  }
+
+  h2 {
+    @apply text-3xl;
+    font-family: var(--font-poppins);
+    font-weight: 600;
+  }
+
+  h3 {
+    @apply text-xl;
+    font-family: var(--font-poppins);
+    font-weight: 600;
+  }
+
+  h4 {
+    @apply text-lg;
+    font-weight: 600;
+    font-family: var(--font-poppins);
+  }
+
+  h5 {
+    @apply text-sm;
+    font-family: var(--font-poppins);
+    font-weight: 600;
+  }
+
+  a {
+    @apply text-sm font-normal;
+    @apply text-[#E8412C];
+    @apply cursor-pointer;
+    font-family: var(--font-tablet-gothic);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  p {
+    font-family: var(--font-crimson-text);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.font-poppins {
+  font-family: var(--font-poppins);
+}
+
+.font-tabletgothic {
+  font-family: var(--font-tablet-gothic);
+}
+
+.font-opensans {
+  font-family: var(--font-open-sans);
+}
+
+.font-crimsontext {
+  font-family: var(--font-crimson-text);
+}
+
+.background-image img {
+  filter: grayscale(100%);
+}
+
+.swiper-ourmedia .swiper-slide {
+  position: relative;
+}
+
+.swiper-ourmedia .swiper-slide .img-wrapper::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.650);
+  z-index: 0;
+
+  transition: opacity .35s ease-in-out;
+  -moz-transition: opacity .35s ease-in-out;
+  -webkit-transition: opacity .35s ease-in-out;
+}
+
+.swiper-ourmedia .swiper-slide-active .img-wrapper::after {
+  /* opacity: 1; */
+  opacity: 0;
+  z-index: -1;
+}
+
+
+
+/* .swiper-ourmedia .swiper-slide img {
+  filter: grayscale(100%);
+}
+
+.swiper-ourmedia .swiper-slide-active img {
+  filter: grayscale(0);
+} */
+
+.swiper-ourmedia .swiper-slide .outer-btn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.swiper-ourmedia .swiper-slide .outer-btn .btn-watch {
+  /* visibility: hidden; */
+  /* background-color: #1b1b1b; */
+  max-width: 210px;
+  opacity: 0;
+  transition: opacity .35s ease-in-out;
+  -moz-transition: opacity .35s ease-in-out;
+  -webkit-transition: opacity .35s ease-in-out;
+}
+
+.swiper-ourmedia .swiper-slide-active .outer-btn .btn-watch {
+  opacity: 1;
+  /* visibility: visible; */
+  /* background-color: #FC2815; */
+}
+
+.top-40 {
+  top: 42% !important;
+}
+
+.our-media div.swiper-button-prev:hover::after,
+.our-media div.swiper-button-next:hover::after {
+  color: #F5F5F5;
+  transition: 200ms;
+  font-weight: 400;
+}
+
+/* .our-media .swiper-button-disabled {
+  opacity: 0 !important;
+} */
+
+div.swiper-button-prev::after,
+div.swiper-button-next::after {
+  font-size: 1.175rem;
+  color: rgb(44, 44, 44);
+  font-weight: 900;
+}
+
+div.swiper-button-next.swiper-btn-next2::after,
+div.swiper-button-prev.swiper-btn-prev2::after {
+  font-size: .875rem;
+  color: #F5F5F5;
+}
+
+div.swiper-button-prev,
+div.swiper-button-next {
+  height: 40px;
+  width: 40px;
+}
+
+div.swiper-button-next,
+div.swiper-rtl .swiper-button-prev {
+  right: var(--swiper-navigation-sides-offset, -5%);
+}
+
+div.swiper-button-prev,
+div.swiper-rtl .swiper-button-next {
+  left: var(--swiper-navigation-sides-offset, -5%);
+  right: auto;
+}
+
+.swiper-ourmedia.active {
+  display: none !important;
+}
+
+
+/* @media only screen and (min-width: 1600px) {
+
+  div.swiper-button-next,
+  div.swiper-rtl .swiper-button-prev {
+    right: var(--swiper-navigation-sides-offset, 5%);
+  }
+
+  div.swiper-button-prev,
+  div.swiper-rtl .swiper-button-next {
+    left: var(--swiper-navigation-sides-offset, 5%);
+    right: auto;
+  }
+} */
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+  background-repeat: no-repeat;
+  background-position: 85% 50%;
+  background-image: url('/images/arrow.png');
+  cursor: pointer;
+}
+
+/* select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 4px;
+  padding-right: 32px;
+  position: relative;
+
+  &::after {
+    content: '';
+    z-index: 1;
+    position: absolute;
+    right: 0;
+    background: url('/images/arrow.png') right no-repeat;
+  }
+} */
+
+/* .swiper-slide-active */
+.swiper-ourmedia {
+  padding: 3rem 0;
+  /* max-width: 500px; */
+}
+
+
+@media only screen and (min-width: 769px) {
+  .swiper-ourmedia {
+    max-width: 700px;
+  }
+}
+
+
+@media only screen and (min-width: 1025px) {
+  .swiper-ourmedia {
+    max-width: 900px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .swiper-ourmedia {
+    max-width: 1300px;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .swiper-ourmedia {
+    max-width: 1600px;
+  }
+}
+
+/* @media only screen and (min-width: 1400px) {
+  .swiper-ourmedia {
+    max-width: 1800px;
+  }
+} */

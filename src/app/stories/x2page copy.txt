@@ -1,0 +1,133 @@
+// "use client"
+
+// import React, { useState } from 'react'
+// import { ArrowRightCircleIcon } from "@heroicons/react/20/solid";
+// import Image from 'next/image'
+// import Link from 'next/link'
+
+// import {
+//   Select,
+//   SelectContent,
+//   SelectGroup,
+//   SelectItem,
+//   SelectLabel,
+//   SelectTrigger,
+//   SelectValue,
+// } from "@/components/ui/select"
+
+// export const dynamic = 'force-static'
+// // import CardItem from '@/components/card/cardItem';
+// // export const dynamicParams = true;
+
+// import SkeletonCardItem from '@/components/skeleton/skeletonCardItem'
+
+// import useSWR from 'swr'
+// import axios from 'axios'
+// import CardMultipleItem from '@/components/card/cardMultipleItem';
+
+
+// export default function Page() {
+
+//   const fetcher = (url) => axios.get(url).then((res) => res.data);
+
+//   let normalizedData = [];
+
+//   const stories = `${process.env.NEXT_PUBLIC_API}/api/stories?wo-paginate=1`;
+//   const { data, error, isLoading, mutate } = useSWR(stories, fetcher);
+
+//   if (data) {
+//     if (Array.isArray(data)) {
+//       normalizedData = data;
+//     } else if (data.data && Array.isArray(data.data)) {
+//       normalizedData = data.data;
+//     }
+//   }
+
+//   const storiesPage = 'stories';
+
+
+//   return (
+//     <section className='mb-20'>
+//       <div className='min-h-[40vh] w-full px-6 bg-[#F9F0DF] pt-[4rem] flex justify-center items-end'>
+//         <div className='flex w-full items-end justify-between max-w-[1180px] mx-auto my-10'>
+//           <div>
+//             <h1 className='font-opensans font-bold'>Stories</h1>
+//           </div>
+
+//           <div className='flex space-x-5 items-center justify-center'>
+//             <input
+//               value={searchKeyword}
+//               onChange={(e) => setSearchKeyword(e.target.value)}
+//               type="text"
+//               placeholder='Search a keyword...'
+//               className='h-[50px] rounded-full px-6 text-sm outline-0 drop-shadow-sm'
+//             />
+
+//             <Select>
+//               <SelectTrigger className="w-[180px]">
+//                 <SelectValue placeholder="Month" value={selectedMonth}
+//                   onChange={(value) => setSelectedMonth(value)} />
+//               </SelectTrigger>
+//               <SelectContent>
+//                 <SelectGroup>
+//                   <SelectLabel>Month</SelectLabel>
+//                   <SelectItem value="January">January</SelectItem>
+//                   <SelectItem value="February">February</SelectItem>
+//                   <SelectItem value="March">March</SelectItem>
+//                   <SelectItem value="April">April</SelectItem>
+//                   <SelectItem value="May">May</SelectItem>
+//                   <SelectItem value="June">June</SelectItem>
+//                   <SelectItem value="July">July</SelectItem>
+//                   <SelectItem value="August">August</SelectItem>
+//                   <SelectItem value="September">September</SelectItem>
+//                   <SelectItem value="October">October</SelectItem>
+//                   <SelectItem value="November">November</SelectItem>
+//                   <SelectItem value="December">December</SelectItem>
+//                 </SelectGroup>
+//               </SelectContent>
+//             </Select>
+
+//             <Select>
+//               <SelectTrigger className="w-[120px]">
+//                 <SelectValue placeholder="Year"
+//                   value={selectedYear}
+//                   onChange={(value) => setSelectedYear(value)} />
+//               </SelectTrigger>
+//               <SelectContent>
+//                 <SelectGroup>
+//                   <SelectLabel>Year</SelectLabel>
+//                   <SelectItem value="2024">2024</SelectItem>
+//                   <SelectItem value="2023">2023</SelectItem>
+//                   <SelectItem value="2022">2022</SelectItem>
+//                   <SelectItem value="2021">2021</SelectItem>
+//                 </SelectGroup>
+//               </SelectContent>
+//             </Select>
+
+//             <button onClick={handleSearch} className='flex w-[120px] h-12 text-[#E8412C] rounded-full  border-[#E8412C] border-2 font-tabletgothic justify-center items-center'>
+//               <ArrowRightCircleIcon className="h-5 w-5 text-[#E8412C] mr-1" /> Search
+//             </button>
+
+//             <button onClick={handleLoadMore} className='flex w-[120px] h-12 text-[#E8412C] rounded-full  border-[#E8412C] border-2 font-tabletgothic justify-center items-center'>
+//               Load More
+//             </button>
+//           </div>
+//         </div>
+//       </div>
+
+//       <div className='max-w-[1180px] mx-auto my-14 px-6'>
+//         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-10 gap-y-16'>
+//           <CardMultipleItem data={normalizedData} page={storiesPage} loading={isLoading} />
+//         </div>
+//       </div>
+//     </section>
+//   )
+// }
+
+import React from 'react'
+
+export default function Test2() {
+  return (
+    <div>Test2</div>
+  )
+}

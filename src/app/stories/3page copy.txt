@@ -1,0 +1,221 @@
+// "use client"
+
+// import React, { useState, useEffect } from 'react'
+// import { ArrowRightCircleIcon } from "@heroicons/react/20/solid";
+// import Image from 'next/image'
+// import Link from 'next/link'
+
+// import {
+//   Select,
+//   SelectContent,
+//   SelectGroup,
+//   SelectItem,
+//   SelectLabel,
+//   SelectTrigger,
+//   SelectValue,
+// } from "@/components/ui/select"
+
+// export const dynamic = 'force-static'
+// // import CardItem from '@/components/card/cardItem';
+// // export const dynamicParams = true;
+
+// import SkeletonCardItem from '@/components/skeleton/skeletonCardItem'
+
+// import useSWR from 'swr'
+// import axios from 'axios'
+// import CardMultipleItem from '@/components/card/cardMultipleItem';
+
+
+// export default function Page() {
+//   const [searchKeyword, setSearchKeyword] = useState('');
+//   const [selectedMonth, setSelectedMonth] = useState('');
+//   const [selectedYear, setSelectedYear] = useState('');
+//   // const [currentPage, setCurrentPage] = useState(1);
+
+//   const [searchUrl, setSearchUrl] = useState(`${process.env.NEXT_PUBLIC_API}/api/stories`);
+
+//   const fetcher = (url) => axios.get(url).then((res) => res.data);
+
+//   const { data, error, isLoading, mutate } = useSWR(searchUrl, fetcher);
+
+//   // const handleAPISearch = async (searchKeyword, selectedMonth, selectedYear) => {
+//   //   try {
+//   //     const f_searchKeyword = searchKeyword !== "" ? searchKeyword : "";
+
+//   //     let finalURLAPI = `${URL}?page=${page}&per_page=${PERPAGE}${beerNameSearch}`
+//   //   } catch {
+
+//   //   }
+//   // }
+
+//   // useEffect(() => {
+//   //   apiSearch(searchKeyword, selectedMonth, selectedYear)
+//   // }, [searchKeyword, selectedMonth, selectedYear])
+
+//   // const makeApiCall = async (beerName, page, PERPAGE) => {
+//   //   try {
+//   //     const beerNameSearch = beerName !== "" ? `&beer_name=${beerName}` : "";
+
+//   //     let resp = await fetch(
+//   //       `${URL}?page=${page}&per_page=${PERPAGE}${beerNameSearch}`
+//   //     );
+
+//   //     resp = await resp.json();
+//   //     setBeers(resp);
+//   //   } catch (e) {
+//   //     console.error("Error while calling the api", e);
+//   //   }
+//   // };
+
+
+//   // Checking data if data is array or object
+//   let normalizedData = [];
+//   if (data) {
+//     if (Array.isArray(data)) {
+//       normalizedData = data;
+//     } else if (data.data && Array.isArray(data.data)) {
+//       normalizedData = data.data;
+//     }
+//   }
+
+//   // Search trigger
+//   const handleSearch = () => {
+//     let newSearchUrl = `${process.env.NEXT_PUBLIC_API}/api/stories/search/${searchKeyword}`;
+//     // apiSearch();
+//     setSearchUrl(newSearchUrl);
+//   };
+
+//   const handleLoadMore = () => {
+//     console.log('test')
+//   };
+
+//   // Set month
+//   const months = [
+//     "January", "February", "March", "April", "May", "June",
+//     "July", "August", "September", "October", "November", "December"
+//   ];
+
+//   // Get the current year
+//   const currentYear = new Date().getFullYear();
+
+//   // Set current year to 2019
+//   const years = Array.from({ length: currentYear - 2018 }, (_, index) => currentYear - index);
+
+//   const storiesPage = 'stories';
+
+//   return (
+//     <section className='mb-20'>
+//       <div className='min-h-[40vh] w-full px-6 bg-[#F9F0DF] pt-[4rem] flex justify-center items-end'>
+//         <div className='flex w-full items-end justify-between max-w-[1180px] mx-auto my-10'>
+//           <div>
+//             <h1 className='font-opensans font-bold'>Stories</h1>
+//           </div>
+
+//           <div className='flex space-x-5 items-center justify-center'>
+//             <input
+//               value={searchKeyword} onChange={(e) => setSearchKeyword(e.target.value)}
+//               type="text"
+//               placeholder='Search a keyword...'
+//               className='h-[50px] rounded-full px-6 text-sm outline-0 drop-shadow-sm'
+//             />
+
+//             <select
+//               className="w-[180px]"
+//               value={selectedMonth}
+//               onChange={(e) => setSelectedMonth(e.target.value)}
+//             >
+//               <option value="" disabled defaultValue>
+//                 Month
+//               </option>
+//               {months.map((month, index) => (
+//                 <option key={index} value={month}>
+//                   {month}
+//                 </option>
+//               ))}
+//             </select>
+
+//             <select
+//               className="w-[180px]"
+//               value={selectedYear}
+//               onChange={(e) => setSelectedYear(e.target.value)}
+//             >
+//               <option value="" disabled defaultValue>
+//                 Years
+//               </option>
+//               {years.map((year, index) => (
+//                 <option key={index} value={year}>
+//                   {year}
+//                 </option>
+//               ))}
+//             </select>
+
+//             {/* <Select>
+//               <SelectTrigger className="w-[180px]">
+//                 <SelectValue placeholder="Month" value={selectedMonth} onChange={(value) => setSelectedMonth(value.target.value)} >
+//                   {selectedMonth}
+//                 </SelectValue>
+//               </SelectTrigger>
+//               <SelectContent>
+//                 <SelectGroup>
+//                   <SelectLabel>Month</SelectLabel>
+//                   {months.map((month, index) => (
+//                     <SelectItem key={index} value={month}>{month}</SelectItem>
+//                   ))}
+//                 </SelectGroup>
+//               </SelectContent>
+//             </Select> */}
+
+//             {/* <Select>
+//               <SelectTrigger className="w-[120px]">
+//                 <SelectValue placeholder="Year" value={selectedYear} onChange={(value) => setSelectedYear(value.target.value)} />
+//               </SelectTrigger>
+//               <SelectContent>
+//                 <SelectGroup>
+//                   <SelectLabel>Year</SelectLabel>
+//                   {years.map((year, index) => (
+//                     <SelectItem key={index} value={year}>{year}</SelectItem>
+//                   ))}
+//                 </SelectGroup>
+//               </SelectContent>
+//             </Select> */}
+
+//             <button onClick={handleSearch} className='flex w-[120px] h-12 text-[#E8412C] rounded-full  border-[#E8412C] border-2 font-tabletgothic justify-center items-center'>
+//               <ArrowRightCircleIcon className="h-5 w-5 text-[#E8412C] mr-1" /> Search
+//             </button>
+
+//           </div>
+//         </div>
+//       </div>
+
+
+//       <div className='max-w-[1180px] mx-auto my-14 px-6'>
+//         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-10 gap-y-16'>
+
+//           {normalizedData.length > 0 ?
+//             <CardMultipleItem data={normalizedData} page={storiesPage} loading={isLoading} />
+//             :
+//             <h4>No result found.</h4>
+//           }
+//         </div>
+//       </div>
+
+//       {/* Load more button */}
+//       {normalizedData.length > 0 && (
+//         <div className="flex justify-center mt-8">
+//           <button onClick={handleLoadMore} className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+//             Load More
+//           </button>
+//         </div>
+//       )}
+//     </section>
+//   )
+// }
+
+import React from 'react'
+
+export default function Teast() {
+  return (
+    <div>Teast</div>
+  )
+}
+
